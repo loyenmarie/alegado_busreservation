@@ -1,0 +1,167 @@
+/*
+Created: 04/05/2017
+Modified: 12/05/2017
+Model: PostgreSQL 9.4
+Database: PostgreSQL 9.4
+*/
+
+
+-- Create tables section -------------------------------------------------
+
+-- Table reservation
+
+CREATE TABLE reservation(
+ reservation_id Bigint NOT NULL,
+ curr_time Time,
+ curr_date Date,
+ account_id Bigint NOT NULL
+)
+;
+
+-- Add keys for table reservation
+
+ALTER TABLE reservation ADD CONSTRAINT Key2 PRIMARY KEY (reservation_id,account_id)
+;
+
+-- Table destination
+
+CREATE TABLE destination(
+ destination_id Bigint NOT NULL,
+ starting_point Varchar,
+ d_place Varchar,
+ d_time Time,
+ d_date Date,
+ d_price Varchar,
+ bus_id Bigint NOT NULL,
+ seat_id Bigint NOT NULL,
+ reservation_id Bigint NOT NULL,
+ account_id Bigint NOT NULL
+)
+;
+
+-- Add keys for table destination
+
+ALTER TABLE destination ADD CONSTRAINT Key3 PRIMARY KEY (destination_id,bus_id,seat_id,reservation_id,account_id)
+;
+
+-- Table seat
+
+CREATE TABLE seat(
+ seat_id Bigint NOT NULL,
+ seat_no Bigint,
+ reservation_id Bigint NOT NULL,
+ account_id Bigint NOT NULL
+)
+;
+
+-- Add keys for table seat
+
+ALTER TABLE seat ADD CONSTRAINT Key5 PRIMARY KEY (seat_id,reservation_id,account_id)
+;
+
+-- Table bus
+
+CREATE TABLE bus(
+ bus_id Bigint NOT NULL,
+ bus_no Bigint,
+ seat_id Bigint NOT NULL,
+ reservation_id Bigint NOT NULL,
+ account_id Bigint NOT NULL
+)
+;
+
+-- Add keys for table bus
+
+ALTER TABLE bus ADD CONSTRAINT Key6 PRIMARY KEY (bus_id,seat_id,reservation_id,account_id)
+;
+
+-- Table confirmation
+
+CREATE TABLE confirmation(
+ con_id Varchar NOT NULL,
+ confirmed Boolean,
+ bus_id Bigint NOT NULL,
+ seat_id Bigint NOT NULL,
+ reservation_id Bigint NOT NULL,
+ account_id Bigint NOT NULL
+)
+;
+
+-- Add keys for table confirmation
+
+ALTER TABLE confirmation ADD CONSTRAINT Key7 PRIMARY KEY (con_id,bus_id,seat_id,reservation_id,account_id)
+;
+
+-- Table account
+
+CREATE TABLE account(
+ account_id Bigint NOT NULL,
+ username Varchar,
+ email Varchar,
+ password Varchar
+)
+;
+
+-- Add keys for table account
+
+ALTER TABLE account ADD CONSTRAINT Key8 PRIMARY KEY (account_id)
+;
+
+-- Create relationships section -------------------------------------------------
+
+ALTER TABLE seat ADD CONSTRAINT Relationship3 FOREIGN KEY (reservation_id, account_id) REFERENCES reservation (reservation_id, account_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+;
+
+ALTER TABLE bus ADD CONSTRAINT Relationship4 FOREIGN KEY (seat_id, reservation_id, account_id) REFERENCES seat (seat_id, reservation_id, account_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+;
+
+ALTER TABLE destination ADD CONSTRAINT Relationship5 FOREIGN KEY (bus_id, seat_id, reservation_id, account_id) REFERENCES bus (bus_id, seat_id, reservation_id, account_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+;
+
+ALTER TABLE confirmation ADD CONSTRAINT Relationship8 FOREIGN KEY (bus_id, seat_id, reservation_id, account_id) REFERENCES bus (bus_id, seat_id, reservation_id, account_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+;
+
+ALTER TABLE reservation ADD CONSTRAINT Relationship9 FOREIGN KEY (account_id) REFERENCES account (account_id) ON DELETE NO ACTION ON UPDATE NO ACTION
+;
+
+
+/* create or replace function loGIN(par_username text, par_password text) returns text as
+$$
+  declare
+    loc_username text;
+    loc_password text;
+    loc_res text;
+  begin
+     select into loc_username username from account where username = par_username;
+     select into loc_password password from account where password = par_password;
+
+     if loc_username isnull AND loc_password isnull then
+       loc_res = 'Error';
+     else
+       loc_res = 'ok';
+     end if;
+     return loc_res;
+  end;
+$$
+ language 'plpgsql';
+
+*/
+
+create or REPLACE function login(in par_username text, in par_password text) RETURNS Text AS
+	$$
+	DECLARE
+		loc_username text;
+		loc_password text;
+    loc_res text;
+    begin
+			SELECT into loc_username "username" , loc_password "password" from account where username = par_username and password = par_password ;
+			if loc_username isnull and loc_password isnull THEN
+						loc_res = 'Error Username or password';
+			else
+					loc_res =  'ok';
+			end if;
+			return loc_res;
+	END;
+
+	$$
+	LANGUAGE 'plpgsql' VOLATILE;
