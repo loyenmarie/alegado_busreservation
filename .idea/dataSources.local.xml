@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="bus_reservation@localhost" uuid="15d5ff20-c336-43cd-bd65-80f4c988f04e">
-      <database-info product="PostgreSQL" version="9.5.6" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>postgres</user-name>
-      <introspection-schemas>bus_reservation:|postgres:public</introspection-schemas>
-    </data-source>
-    <data-source name="bus_reservation@localhost [2]" uuid="5d6c96a1-4483-4595-adc6-54f1d69fcf21">
+    <data-source name="bus_reservation@localhost" uuid="9e59cb86-d1e4-40e9-afc3-e4a18fe25b65">
       <database-info product="PostgreSQL" version="9.5.6" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

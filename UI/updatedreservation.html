@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<link rel="stylesheet" href="css2/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css2/ccss.css">
+	<link rel="stylesheet" href="css2/navbar.css">
+
+	<script src="jQuery-2.1.4.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="p.js"></script>
+
+	<title>Reservation</title>
+
+</head>
+<body>
+	<div class="container">
+		<div class="container-fluid">
+			<nav class="navbar">
+				<div class="navbar-header">
+				  	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+				  	</button> <a class="navbar-brand" href="#">Reserve a Seat</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-4">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="viewbus.html" style="background-color: transparent; border-color:transparent; color:white;">Bus</a></li>
+						<li><a href="#" style="background-color: transparent; border-color:transparent; color:white;">Reservation</a></li>
+						<li><a href="myreservation.html" style="background-color:transparent; border-color:transparent; color:white;">My Reservation</a></li>
+						<li><a href="index.html" class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" aria-expanded="false" aria-controls="nav-collapse4"> Log-out<i class=""></i></a></li>
+				  	</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row main">
+			<div class="main-login main-center">
+				<h5>Reservation Form</h5>
+				<form class="" method="post" action="#">
+					<div class="form-group">
+						<label for="name" class="cols-sm-2 control-label">Name</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+								<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="contact" class="cols-sm-2 control-label">Contact Number</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
+								<input type="text" class="form-control" name="contact" id="contact"  placeholder="Enter your Contact Number"/>
+							</div>
+						</div>
+					</div>
+                    <div class="form-group">
+						<label for="tiime" class="cols-sm-2 control-label">Time</label>
+						<div class="dropdown">
+							<select id="tiime" name="tiime" class="form-control">
+								<option value>Select Time</option>
+								<option value="7:00 AM">7:00 AM</option>
+								<option value="12:00 PM">12:00 PM</option>
+								<option value="3:00 PM">3:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="route" class="cols-sm-2 control-label">Origin - Destination</label>
+						<div class="dropdown">
+							<select id="route" name="route" class="form-control">
+								<option value>Select Route</option>
+								<option value="Iligan City - Laguindingan">Iligan City - Laguindingan</option>
+								<option value="Iligan City - Cagayan de Oro">Iligan City - Cagayan de Oro</option>
+								<option value="Cagayan de Oro - Laguindingan">Cagayan de Oro - Laguindingan</option>
+								<option value="Cagayan de Oro - Iligan City">Cagayan de Oro - Iligan City</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="seat_no" class="cols-sm-2 control-label">Seat Number</label>
+						<div class="dropdown">
+							<select id="seat_no" name="seat_no" class="form-control">
+								<option value>Select Seat No.</option>
+								<option value="l">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="bus_no" class="cols-sm-2 control-label">Bus Number</label>
+						<div class="dropdown">
+							<select id="bus_no" name="bus_no" class="form-control">
+								<option value>Select Bus No.</option>
+								<option value="707">707</option>
+								<option value="808">808</option>
+								<option value="909">909</option>
+								<option value="909">101</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group ">
+						<button type="button" onclick="reserve();" class="btn btn-block btn-default" >Make Reservation</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

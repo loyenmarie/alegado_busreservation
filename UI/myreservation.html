@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reserve a Seat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css2/navbar.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css2/bootstrap.css" rel="stylesheet">
+
+    <script src="jQuery-2.1.4.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="p.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="container-fluid">
+			<nav class="navbar">
+				<div class="navbar-header">
+				  	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+				  	</button> <a class="navbar-brand" href="#">Reserve a Seat</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar-collapse-4">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="viewbus.html" style="background-color: transparent; border-color:transparent; color:white;">Bus</a></li>
+						<li><a href="updatedreservation.html" style="background-color: transparent; border-color:transparent; color:white;">Reservation</a></li>
+						<li><a href="myreservation.html" style="background-color:transparent; border-color:transparent; color:white;">My Reservation</a></li>
+						<li><a href="index.html" class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" aria-expanded="false" aria-controls="nav-collapse4"> Log-out<i class=""></i></a></li>
+				  	</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+
+<center> <button type="submit" class="btn-primary" onclick="daghanpurpose();">View Reservation</button>
+            <button type="submit" class="btn-success" onclick="delete2();">Clear All</button><br><br></center>
+<!--table-->
+<div class="container">
+    <div class="row">
+
+        <!--<div class="span7">-->
+            <div class="widget stacked widget-table action-table">
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+
+                    </table>
+                </div>
+                <div id="view_res"></div>
+            </div>
+        <!--</div>-->
+    </div>
+</div>
+<!--table -->
+
+<!-- modal -->
+<div class="modal fade" id="squarespaceModal" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel">Edit Reservation</h3>
+		</div>
+			<div class="modal-body">
+				<!-- content goes here -->
+			<form>
+                <div class="form-group">
+					<label for="name" class="cols-sm-2 control-label">Name</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+								<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+							</div>
+						</div>
+				</div>
+				<div class="form-group">
+					<label for="contact" class="cols-sm-2 control-label">Contact Number</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
+								<input type="text" class="form-control" name="contact" id="contact"  placeholder="Enter your Contact Number"/>
+							</div>
+						</div>
+				</div>
+				<div class="form-group">
+					<label for="tiime" class="cols-sm-2 control-label">Time</label>
+						<div class="dropdown">
+							<select id="tiime" name="tiime" class="form-control">
+								<option value>Select Time</option>
+								<option value="7:00 AM">7:00 AM</option>
+								<option value="12:00 PM">12:00 PM</option>
+								<option value="3:00 PM">3:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+							</select>
+						</div>
+				</div>
+				<div class="form-group">
+					<label for="route" class="cols-sm-2 control-label">Origin - Destination</label>
+						<div class="dropdown">
+							<select id="route" name="route" class="form-control">
+								<option value>Select Route</option>
+								<option value="Iligan City - Laguindingan">Iligan City - Laguindingan</option>
+								<option value="Iligan City - Cagayan de Oro">Iligan City - Cagayan de Oro</option>
+								<option value="Cagayan de Oro - Laguindingan">Cagayan de Oro - Laguindingan</option>
+								<option value="Cagayan de Oro - Iligan City">Cagayan de Oro - Iligan City</option>
+							</select>
+						</div>
+				</div>
+				<div class="form-group">
+					<label for="seat_no" class="cols-sm-2 control-label">Seat Number</label>
+						<div class="dropdown">
+							<select id="seat_no" name="seat_no" class="form-control">
+								<option value="Select Bus No.">Select Seat No.</option>
+								<option value="l">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+				</div>
+				<div class="form-group">
+					<label for="bus_no" class="cols-sm-2 control-label">Bus Number</label>
+						<div class="dropdown">
+							<select id="bus_no" name="bus_no" class="form-control">
+								<option value="Select Bus No.">Select Bus No.</option>
+								<option value="707">707</option>
+								<option value="808">808</option>
+								<option value="909">909</option>
+								<option value="909">101</option>
+							</select>
+						</div>
+				</div>
+            </form>
+		</div>
+
+		<div class="modal-footer">
+			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-default" data-dismiss="modal"  role="button">Close</button>
+				</div>
+				<div class="btn-group btn-delete hidden" role="group">
+					<button type="button" id="delImage" class="btn btn-default btn-hover-red" data-dismiss="modal"  role="button">Delete</button>
+				</div>
+				<div class="btn-group" role="group">
+					<button type="button" id="saveImage" class="btn btn-default btn-hover-green" onclick="editedit();" data-action="save" role="button">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+</body>
+</html>

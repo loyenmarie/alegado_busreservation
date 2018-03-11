@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bus_reservation@localhost" uuid="15d5ff20-c336-43cd-bd65-80f4c988f04e">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <auto-commit>false</auto-commit>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/bus_reservation</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="bus_reservation@localhost [2]" uuid="5d6c96a1-4483-4595-adc6-54f1d69fcf21">
+    <data-source source="LOCAL" name="bus_reservation@localhost" uuid="9e59cb86-d1e4-40e9-afc3-e4a18fe25b65">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
